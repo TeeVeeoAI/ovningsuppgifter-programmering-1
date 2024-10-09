@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ovningsuppgifter-programmering-1")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d50a294ab7dd79b8f6a0d270492863502f806be6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+137fdc9f5e39a1a0d15b4f643d80857ee5d91a51")]
 [assembly: System.Reflection.AssemblyProductAttribute("ovningsuppgifter-programmering-1")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ovningsuppgifter-programmering-1")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,4 +1,6 @@
-﻿while(true) {
+﻿using System.Data.Common;
+
+while (true) {
     Main();
     if (Console.ReadLine() == "!") {
         break;
@@ -42,9 +44,12 @@ void Main() {
         Console.WriteLine("What do you want to do with it?");
         while (true) {
             string type = Convert.ToString(Console.ReadLine());
-            if (type == "!") {
+            if (type == "n!") {
                 int input_int = Convert.ToInt32(input);
                 Console.WriteLine(input + "! = " + Factorial(input_int));
+                break;
+            } else if(type =="!n") {
+                Console.WriteLine("!" + input + " = " + Sub_Factorial(input));
                 break;
             } else {
                 Console.WriteLine("input is invalid");
@@ -74,4 +79,18 @@ int Factorial(int a) {
         a = a*i;
     }
     return a;
+}
+
+double Sub_Factorial(double a){
+    double c = 0;
+    int a_d = Convert.ToInt32(a);
+    Factorial(a_d);
+    for (int k = 1; k <= a_d; k++) {
+        double k_d = Convert.ToDouble(k);
+        double k_F = Convert.ToDouble(Factorial(k));
+        double o = -1;
+        c = ((Math.Pow((k_d, o))/k_F) + c;
+        Console.WriteLine(c);
+    }
+    return c;
 }
