@@ -1,15 +1,26 @@
-﻿using System.Data.Common;
-
-while (true) {
+﻿/*while (true) {
     Main();
     if (Console.ReadLine() == "!") {
         break;
     } else {
-        
+        int Fibonaccis_Sequence = 0;
+        while (true){
+            F.Fibonacci(ref Fibonaccis_Sequence);
+            if (Fibonaccis_Sequence == 0) {
+                Console.Write(Fibonaccis_Sequence);
+            }
+            Console.Write(", " + Fibonaccis_Sequence);
     }
+} */
+int i = 0;
+int Fibonaccis_Sequence = 0;
+Console.Write(Fibonaccis_Sequence + ", ");
+for (int u = 1; u <= 10; u++) {
+    F.Fibonacci(ref Fibonaccis_Sequence, ref i);
+    Console.Write(Fibonaccis_Sequence + ", ");
 }
 
-void Main() {
+/*void Main() {
     Console.WriteLine("How meny numbers do you need?");
     int amount = Convert.ToInt32(Console.ReadLine());
     if (amount == 2) {
@@ -93,4 +104,4 @@ double Sub_Factorial(double a){
         Console.WriteLine(c);
     }
     return c;
-}
+}*/
