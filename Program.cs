@@ -12,14 +12,15 @@
             Console.Write(", " + Fibonaccis_Sequence);
     }
 } */
-int i = 0;
-int Fibonaccis_Sequence = 0;
-Console.Write(Fibonaccis_Sequence + ", ");
-for (int u = 1; u <= 10; u++) {
-    F.Fibonacci(ref Fibonaccis_Sequence, ref i);
-    Console.Write(Fibonaccis_Sequence + ", ");
+Console.Write("Enter the how much of the Fibonacci sequence you want to see: ");
+int n = Convert.ToInt32(Console.ReadLine());
+n++;
+int[] fibonacci_array = new int[n];
+fibonacci_array[0] = 0;
+fibonacci_array[1] = 1;
+for (int i = 0; i < n; i++) {
+    F.Fibonacci(fibonacci_array, i, n);
 }
-
 /*void Main() {
     Console.WriteLine("How meny numbers do you need?");
     int amount = Convert.ToInt32(Console.ReadLine());
