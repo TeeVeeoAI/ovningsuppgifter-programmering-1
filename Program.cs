@@ -11,7 +11,7 @@
             }
             Console.Write(", " + Fibonaccis_Sequence);
     }
-} */
+} 
 Console.Write("Enter the how much of the Fibonacci sequence you want to see: ");
 int n = Convert.ToInt32(Console.ReadLine());
 n++;
@@ -21,7 +21,8 @@ fibonacci_array[1] = 1;
 for (int i = 0; i < n; i++) {
     F.Fibonacci(fibonacci_array, i, n);
 }
-/*void Main() {
+
+void Main() {
     Console.WriteLine("How meny numbers do you need?");
     int amount = Convert.ToInt32(Console.ReadLine());
     if (amount == 2) {
@@ -106,3 +107,66 @@ double Sub_Factorial(double a){
     }
     return c;
 }*/
+
+
+
+//Del 2
+//uppgift 1:
+void uppgift1(){
+    int a = 10; 
+    Console.WriteLine(a);
+}
+
+void uppgift2(){
+    string a = "Tore";
+    Console.WriteLine("Hej " + a);
+}
+
+void uppgift3(){
+    Console.WriteLine("Skriv ett nummer");
+    int a = int.Parse(Console.ReadLine());
+    Console.WriteLine("Skriv ett till nummer");
+    int b = int.Parse(Console.ReadLine());
+    Console.WriteLine("Summan är " + (a + b));
+}
+
+void uppgift4(){
+    Console.WriteLine("Skriv ett tal");
+    int a = int.Parse(Console.ReadLine());
+    
+    if (a < 0) {
+        Console.WriteLine("Det är negativt");
+    } else if (a > 0) {
+        Console.WriteLine("Det är posetivt");
+    } else {
+        Console.WriteLine("Det är noll");
+    }
+}
+
+void uppgift5(){
+    Console.WriteLine("Skriv ett tal");
+    int a = int.Parse(Console.ReadLine());
+
+    if (a % 2 == 0){
+        Console.WriteLine("Det är jämmt");
+    } else {
+        Console.WriteLine("Det är udda");
+    }
+}
+
+void uppgift6(){
+    Console.WriteLine("Skriv ditt namn för att se om du kan köra bil.");
+    int ålder = int.Parse(Console.ReadLine());
+
+    if (ålder >= 18){
+        Console.WriteLine("Ja");
+    } else {
+        Console.WriteLine("Nej");
+    }
+}
+
+void uppgift17(){
+    //in går klasser Bil, Kund, Uthyrning
+
+
+}
