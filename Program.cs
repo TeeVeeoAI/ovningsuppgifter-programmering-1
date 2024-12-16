@@ -172,11 +172,14 @@ void uppgift17(){
     List<Bil> bilar = new List<Bil>();
 
     while (true){
-        Console.WriteLine("Lägg till bil");
+        Console.WriteLine("Vad vill du göra?");
         string input = Console.ReadLine();
 
-        if ( input == "Ja") {
+        if ( input == "Lägg till ny bil" || "Ny bil") {
             NyBil(bilar);
+        }
+        if ( input == "Se alla tillgägliga billar" || input == "Se tillgägliga") {
+            SeTillgägliga(bilar);
         }
     }
 }
@@ -206,4 +209,17 @@ void NyBil(List<Bil> bilar){
     Bil nyBil = new Bil(märke, modell, årsmodell, dagshyra, ärTillgänglig);
 
     bilar.Add(nyBil);
+}
+
+void SeTillgägliga(list<Bil> bilar) {
+
+    foreach (Bil bil in bilar){
+        
+        if (bil.ÄrTillgänglig == true){
+
+            Console.WriteLine()
+            Console.VisaInfo();
+
+        }
+    }
 }
