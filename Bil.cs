@@ -46,12 +46,13 @@ namespace ovningsuppgifter_programmering_1
         }
 
         public void VisaInfo(){
-            Console.WriteLine(märke + " " + modell + "\n" + "Årsmodell: " + årsmodell + "\n" + "Dagshyra: " + dagshyra + "\n" + "Tillgänglig: " + ärTillgänglig);
+            Console.WriteLine(märke + " " + modell + "\n" + "Årsmodell: " + årsmodell + "\n" + "Dagshyra: " + dagshyra + "Kr\n" + "Tillgänglig: " + ärTillgänglig);
         }
 
         public Bil(string mä, string mo, int å, double d, bool ä){
             märke = mä;
             modell = mo;
+            årsmodell = å;
             dagshyra = d;
             ärTillgänglig = ä;
         }

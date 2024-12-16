@@ -112,6 +112,7 @@ double Sub_Factorial(double a){
 
 //Del 2
 //uppgift 1:
+using System.Runtime.InteropServices;
 using ovningsuppgifter_programmering_1;
 
 void uppgift1(){
@@ -167,6 +168,8 @@ void uppgift6(){
     }
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void uppgift17(){
     //in går klasser Bil, Kund, Uthyrning
     List<Bil> bilar = new List<Bil>();
@@ -175,51 +178,93 @@ void uppgift17(){
         Console.WriteLine("Vad vill du göra?");
         string input = Console.ReadLine();
 
-        if ( input == "Lägg till ny bil" || "Ny bil") {
-            NyBil(bilar);
-        }
-        if ( input == "Se alla tillgägliga billar" || input == "Se tillgägliga") {
-            SeTillgägliga(bilar);
+        if ( input == "Lägg till ny bil" || input == "Ny bil") {
+            bilar.Add(NyBil(bilar));
+        } else if (input == "Se bilar") {
+            SeBilar(bilar);
         }
     }
 }
 
-void NyBil(List<Bil> bilar){
+Bil NyBil(List<Bil> bilar){
     string märke;
     string modell;
     int årsmodell;
     double dagshyra;
     bool ärTillgänglig;
 
-    Console.WriteLine("Märke? ");
-    märke = Console.ReadLine();
+    Console.WriteLine("\nMärke? ");
+    while (true) {
+        try {
+            märke = Console.ReadLine();
+            break;
+        }
+        catch (Exception e) {
+            Console.WriteLine("Försök igen");
+        }
+    }
 
-    Console.WriteLine("Modell? ");
-    modell = Console.ReadLine();
+    Console.WriteLine("\nModell? ");
+    while (true) {
+        try {
+            modell = Console.ReadLine();
+            break;
+        }
+        catch (Exception e) {
+            Console.WriteLine("Försök igen");
+        }
+    }
 
-    Console.WriteLine("årsmodell? ");
-    årsmodell = int.Parse(Console.ReadLine());
+    Console.WriteLine("\nårsmodell? ");
+    while (true) {
+        try {
+            årsmodell = int.Parse(Console.ReadLine());
+            break;
+        }
+        catch (Exception e) {
+            Console.WriteLine("Försök igen");
+        }
+    }
 
-    Console.WriteLine("dagshyra? ");
-    dagshyra = double.Parse(Console.ReadLine());
+    Console.WriteLine("\ndagshyra? ");
+    while (true) {
+        try {
+            dagshyra = double.Parse(Console.ReadLine());
+            break;
+        }
+        catch (Exception e) {
+            Console.WriteLine("Försök igen");
+        }
+    }
 
-    Console.WriteLine("Tillgäglig? ");
-    ärTillgänglig = bool.Parse(Console.ReadLine());
+    Console.WriteLine("\nTillgäglig? ");
+    while (true) {
+        try {
+            ärTillgänglig = bool.Parse(Console.ReadLine());
+            break;
+        }
+        catch (Exception e) {
+            Console.WriteLine("Försök igen");
+        }
+    }
 
     Bil nyBil = new Bil(märke, modell, årsmodell, dagshyra, ärTillgänglig);
 
-    bilar.Add(nyBil);
+    return nyBil;
 }
 
-void SeTillgägliga(list<Bil> bilar) {
+void SeBilar(List<Bil> bilar) {
 
     foreach (Bil bil in bilar){
         
         if (bil.ÄrTillgänglig == true){
 
-            Console.WriteLine()
-            Console.VisaInfo();
+            Console.WriteLine("/////////////////////////////////////////////////////////////////////////\n");
+            bil.VisaInfo();
 
         }
     }
+    Console.WriteLine("\n/////////////////////////////////////////////////////////////////////////");
 }
+
+uppgift17();
