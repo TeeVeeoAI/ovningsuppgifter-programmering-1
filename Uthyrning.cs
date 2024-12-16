@@ -23,7 +23,15 @@ namespace ovningsuppgifter_programmering_1
         private double totalKostnad;
 
         public void VisaUthyrningsInfo(){
-            Console.WriteLine("Bil: " + )
+            Console.WriteLine("Bil: " + bil.Märke + " " + bil.Modell + "\nKund: " + kund.Namn + "\nAntal dagar: " + antalDagar + "\nTotal kostnad" + totalKostnad + " kr.");
+        }
+        
+
+        public Uthyrning(Bil b, Kund k, int a){
+            kund = k;
+            bil = b;
+            antalDagar = a;
+            totalKostnad = b.Dagshyra * a;
         }
     }
 }

@@ -42,7 +42,7 @@ namespace ovningsuppgifter_programmering_1
 
         public bool ÄrTillgänglig{
             get{ return ärTillgänglig; }
-            set{ årsmodell = value; }
+            set{ ärTillgänglig = value; }
         }
 
         public void VisaInfo(){

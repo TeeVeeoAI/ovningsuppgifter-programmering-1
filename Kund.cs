@@ -18,6 +18,13 @@ namespace ovningsuppgifter_programmering_1
         private string namn;
         private string telefonnummer;
 
+        public string Namn{
+            get{ return namn; }
+        }
+        public string Tlefonnummer{
+            get{ return telefonnummer; }
+        }
+
         public void VisaKundInfo(){
             Console.WriteLine("Namn: " + namn + "\n" + "Telefonnumer" + telefonnummer);
         }

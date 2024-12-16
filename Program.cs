@@ -112,6 +112,8 @@ double Sub_Factorial(double a){
 
 //Del 2
 //uppgift 1:
+using ovningsuppgifter_programmering_1;
+
 void uppgift1(){
     int a = 10; 
     Console.WriteLine(a);
@@ -167,6 +169,41 @@ void uppgift6(){
 
 void uppgift17(){
     //in går klasser Bil, Kund, Uthyrning
+    List<Bil> bilar = new List<Bil>();
 
+    while (true){
+        Console.WriteLine("Lägg till bil");
+        string input = Console.ReadLine();
 
+        if ( input == "Ja") {
+            NyBil(bilar);
+        }
+    }
+}
+
+void NyBil(List<Bil> bilar){
+    string märke;
+    string modell;
+    int årsmodell;
+    double dagshyra;
+    bool ärTillgänglig;
+
+    Console.WriteLine("Märke? ");
+    märke = Console.ReadLine();
+
+    Console.WriteLine("Modell? ");
+    modell = Console.ReadLine();
+
+    Console.WriteLine("årsmodell? ");
+    årsmodell = int.Parse(Console.ReadLine());
+
+    Console.WriteLine("dagshyra? ");
+    dagshyra = double.Parse(Console.ReadLine());
+
+    Console.WriteLine("Tillgäglig? ");
+    ärTillgänglig = bool.Parse(Console.ReadLine());
+
+    Bil nyBil = new Bil(märke, modell, årsmodell, dagshyra, ärTillgänglig);
+
+    bilar.Add(nyBil);
 }
