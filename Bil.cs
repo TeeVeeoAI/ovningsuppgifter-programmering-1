@@ -49,12 +49,12 @@ namespace ovningsuppgifter_programmering_1
             Console.WriteLine(märke + " " + modell + "\n" + "Årsmodell: " + årsmodell + "\n" + "Dagshyra: " + dagshyra + "Kr\n" + "Tillgänglig: " + ärTillgänglig);
         }
 
-        public Bil(string mä, string mo, int å, double d, bool ä){
+        public Bil(string mä, string mo, int å, double d){
             märke = mä;
             modell = mo;
             årsmodell = å;
             dagshyra = d;
-            ärTillgänglig = ä;
+            ärTillgänglig = true;
         }
     }
 }

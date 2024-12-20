@@ -112,7 +112,9 @@ double Sub_Factorial(double a){
 
 //Del 2
 //uppgift 1:
+using System.Reflection.Metadata.Ecma335;
 using System.Runtime.InteropServices;
+using System.Text.Unicode;
 using ovningsuppgifter_programmering_1;
 
 void uppgift1(){
@@ -127,9 +129,21 @@ void uppgift2(){
 
 void uppgift3(){
     Console.WriteLine("Skriv ett nummer");
-    int a = int.Parse(Console.ReadLine());
+    int a = 0;
+    int b = 0;
+    try{
+        a = int.Parse(Console.ReadLine());
+    }
+    catch(Exception e){
+        Console.WriteLine(e.Message + "\nFörsök igen: ");
+    }
     Console.WriteLine("Skriv ett till nummer");
-    int b = int.Parse(Console.ReadLine());
+    try{
+        b = int.Parse(Console.ReadLine());
+    }
+    catch(Exception e){
+        Console.WriteLine(e.Message + "\nFörsök igen: ");
+    }
     Console.WriteLine("Summan är " + (a + b));
 }
 
@@ -173,25 +187,34 @@ void uppgift6(){
 void uppgift17(){
     //in går klasser Bil, Kund, Uthyrning
     List<Bil> bilar = new List<Bil>();
+    List<Kund> kunder = new List<Kund>();
+    List<Uthyrning> uthyrningar = new List<Uthyrning>();
 
     while (true){
-        Console.WriteLine("Vad vill du göra?");
+        Console.WriteLine(  "Vad vill du göra? \n"+
+                            "1. Lägg till ny bil. \n"+
+                            "2. Se tillgängliga bilar. \n"+
+                            "3. Lägg till ny kund. \n" +
+                            "4. Hyr bil \n");
         string input = Console.ReadLine();
 
-        if ( input == "Lägg till ny bil" || input == "Ny bil") {
-            bilar.Add(NyBil(bilar));
-        } else if (input == "Se bilar") {
+        if ( input == "Lägg till ny bil" || input == "Ny bil" || input == "1") {
+            bilar.Add(NyBil());
+        } else if (input == "Se bilar" || input == "2") {
             SeBilar(bilar);
+        } else if (input == "Lägg till ny kund" || input == "Ny kund" || input == "3") {
+            kunder.Add(NyKund());
+        } else if (input == "Hyr bil" || input == "4") {
+            uthyrningar.Add(HyrBil(bilar, kunder));
         }
     }
 }
 
-Bil NyBil(List<Bil> bilar){
+Bil NyBil(){
     string märke;
     string modell;
     int årsmodell;
     double dagshyra;
-    bool ärTillgänglig;
 
     Console.WriteLine("\nMärke? ");
     while (true) {
@@ -237,20 +260,36 @@ Bil NyBil(List<Bil> bilar){
         }
     }
 
-    Console.WriteLine("\nTillgäglig? ");
+    return new Bil(märke, modell, årsmodell, dagshyra);
+}
+
+Kund NyKund(){
+    string namn;
+    string telefonnummer;
+
+    Console.WriteLine("\nNamn?");
     while (true) {
-        try {
-            ärTillgänglig = bool.Parse(Console.ReadLine());
+        try{
+            namn = Console.ReadLine();
             break;
         }
-        catch (Exception e) {
+        catch(Exception e){
+            Console.WriteLine("Försök igen");
+        }   
+    }
+
+    Console.WriteLine("\nTelefonnummer?");
+    while (true) {
+        try {
+            telefonnummer = Console.ReadLine();
+            break;
+        } 
+        catch(Exception e){
             Console.WriteLine("Försök igen");
         }
     }
 
-    Bil nyBil = new Bil(märke, modell, årsmodell, dagshyra, ärTillgänglig);
-
-    return nyBil;
+    return new Kund(namn, telefonnummer);
 }
 
 void SeBilar(List<Bil> bilar) {
@@ -265,6 +304,78 @@ void SeBilar(List<Bil> bilar) {
         }
     }
     Console.WriteLine("\n/////////////////////////////////////////////////////////////////////////");
+}
+
+Uthyrning HyrBil(List<Bil> bilar, List<Kund> kunder){
+    Bil bil;
+    Kund kund;
+    int antalDagar;
+    int i;
+
+    Console.WriteLine("\nVilken kund är du?\n\n");
+    int p;
+
+    i = 1;
+    foreach(Kund k in kunder){
+        Console.Write(i + ". ");
+        k.VisaKundInfo();
+        i++;
+    }
+
+    Console.WriteLine("Vilket nummer?");
+    while(true){
+        try {
+            p = int.Parse(Console.ReadLine());
+            if (p > kunder.Count){
+                throw new Exception();
+            }
+            kund = kunder[p-1];
+            break;
+        }
+        catch(Exception e){
+            Console.WriteLine("Försök igen.");
+        }
+    }
+
+    Console.WriteLine("\nVilken bil?\n\n");
+    int bill;
+
+    i = 1;
+    foreach(Bil b in bilar){
+        Console.Write(i + ". ");
+        b.VisaInfo();
+        i++;
+    }
+
+    Console.WriteLine("\nVilket nummer?");
+    while (true){
+        try {
+            bill = int.Parse(Console.ReadLine());
+            if (bill > kunder.Count){
+                throw new Exception();
+            }
+            bil = bilar[bill-1];
+            break;
+        }
+        catch (Exception e){
+            Console.WriteLine("Försök igen.");
+        }
+    }
+
+    Console.WriteLine("\nHur många dagar?");
+    while (true){
+        try{
+            antalDagar = int.Parse(Console.ReadLine());
+            break;
+        }
+        catch (Exception e){
+            Console.WriteLine("Försök igen.");
+        }
+    }
+    
+    bil.ÄrTillgänglig = false;
+
+    return new Uthyrning(bil, kund, antalDagar);
 }
 
 uppgift17();

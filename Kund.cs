@@ -21,12 +21,12 @@ namespace ovningsuppgifter_programmering_1
         public string Namn{
             get{ return namn; }
         }
-        public string Tlefonnummer{
+        public string Telefonnummer{
             get{ return telefonnummer; }
         }
 
         public void VisaKundInfo(){
-            Console.WriteLine("Namn: " + namn + "\n" + "Telefonnumer" + telefonnummer);
+            Console.WriteLine("Namn: " + namn + "Telefonnumer" + telefonnummer);
         }
 
         public Kund(string n, string t){
